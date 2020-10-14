@@ -1,0 +1,250 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name : EventScripts
+file_extensions:
+  - txt
+scope: source.eventscripts
+
+
+variables:
+  numerals: '\b((-)?[0-9.]+)\b'
+  keywords: '\b(if|es_xif|then|else|es_xelse|do|while|ifx parse|in|notin)\b'
+  comparison: <\=|>\=|\=\=|<|>|\!\=|=
+  arithmetic: \+|\-|\*|\*|[^a-zA-Z]\/[^\/]
+
+  beginempty: (?<!\S)
+  endempty: (?!\S)
+
+  colors: \#multi|\#green|\#default|\#lightgreen|\#darkgreen
+
+  eventvars: '\b(event_var)\b'
+  servervars: '\b(server_var)\b'
+
+  eventkeygeneric: '\b(userid|attacker)\b'
+  eventkeysesuserid: '\b(es_username|es_steamid|es_userweapon|es_userteam|es_userarmor|es_userhealth|es_userdeaths|es_userkills|es_userdead|es_userindex)\b'
+  eventkeysesattacker: '\b(es_attackername|es_attackersteamid|es_attackerweapon|es_attackerteam|es_attackerarmor|es_attackerhealth|es_attackerdeaths|es_attackerkills|es_attackerdead|es_attackerindex)\b'
+  eventkeys: '\b({{eventkeygeneric}}|{{eventkeysesuserid}}|{{eventkeysesattacker}})\b'
+
+  serverkeys: '\b(wcs_userid|wcs_targetid)\b'
+
+  blockdef: '\b(block)\b'
+  blocks: '\b(load|unload)\b'
+
+  genericevents: '\b(team_info|team_score|teamplay_broadcast_audio|player_team|player_class|player_death|player_hurt|player_chat|player_score|player_spawn|player_shoot|player_use|player_changename|player_hintmessage|base_player_teleported|game_init|game_newmap|game_start|game_end|round_start|round_end|game_message|break_breakable|break_prop|entity_killed|bonus_updated|achievement_event|achievement_increment|physgun_pickup|flare_ignite_npc|helicopter_grenade_punt_miss|user_data_downloaded|ragdoll_dissolved|hltv_changed_mode|hltv_changed_target|vote_ended|vote_started|vote_changed|vote_passed|vote_failed|vote_cast|vote_options|replay_saved|entered_performance_mode|browse_replays|replay_youtube_stats|inventory_updated|cart_updated|store_pricesheet_updated|gc_connected|item_schema_initialized)\b'
+  genericserverevents: '\b(server_spawn|server_shutdown|server_cvar|server_message|server_addban|server_removeban|player_connect|player_connect_client|player_info|player_disconnect|player_activate|player_say)\b'
+  eventscriptsevents: '\b(es_map_start|es_scriptpack_register|es_scriptpack_unregister|es_player_validated|es_player_setting|es_client_command|es_player_chat|es_player_variable)\b'
+  csgoevents: '\b(player_connect_full|player_death|other_death|player_hurt|item_purchase|bomb_beginplant|bomb_abortplant|bomb_planted|bomb_defused|bomb_exploded|bomb_dropped|bomb_pickup|defuser_dropped|defuser_pickup|announce_phase_end|cs_intermission|bomb_begindefuse|bomb_abortdefuse|hostage_follows|hostage_hurt|hostage_killed|hostage_rescued|hostage_stops_following|hostage_rescued_all|hostage_call_for_help|vip_escaped|vip_killed|player_radio|bomb_beep|weapon_fire|weapon_fire_on_empty|grenade_thrown|weapon_outofammo|weapon_reload|weapon_zoom|silencer_detach|inspect_weapon|weapon_zoom_rifle|player_spawned|item_pickup|item_pickup_failed|item_remove|ammo_pickup|item_equip|enter_buyzone|exit_buyzone|buytime_ended|enter_bombzone|exit_bombzone|enter_rescue_zone|exit_rescue_zone|silencer_off|silencer_on|buymenu_open|buymenu_close|round_announce_warmup|round_announce_match_start|round_prestart|round_poststart|round_start|round_end|grenade_bounce|hegrenade_detonate|flashbang_detonate|smokegrenade_detonate|smokegrenade_expired|molotov_detonate|decoy_detonate|decoy_started|tagrenade_detonate|inferno_startburn|inferno_expire|inferno_extinguish|decoy_firing|bullet_impact|player_footstep|player_jump|player_blind|player_falldamage|door_moving|round_freeze_end|mb_input_lock_success|mb_input_lock_cancel|nav_blocked|nav_generate|player_stats_updated|achievement_info_loaded|spec_target_updated|spec_mode_updated|hltv_changed_mode|cs_game_disconnected|cs_win_panel_round|cs_win_panel_match|cs_match_end_restart|cs_pre_restart|show_freezepanel|hide_freezepanel|freezecam_started|player_avenged_teammate|achievement_earned|achievement_earned_local|item_found|items_gifted|repost_xbox_achievements|match_end_conditions|round_mvp|player_decal|teamplay_round_start|client_disconnect|gg_player_levelup|ggtr_player_levelup|assassination_target_killed|ggprogressive_player_levelup|gg_killed_enemy|gg_final_weapon_achieved|gg_bonus_grenade_achieved|switch_team|gg_leader|gg_team_leader|gg_player_impending_upgrade|write_profile_data|trial_time_expired|update_matchmaking_stats|player_reset_vote|enable_restart_voting|sfuievent|start_vote|player_given_c4|player_become_ghost|gg_reset_round_start_sounds|tr_player_flashbanged|tr_highlight_ammo|tr_mark_complete|tr_mark_best_time|tr_exit_hint_trigger|bot_takeover|tr_show_finish_msgbox|tr_show_exit_msgbox|reset_player_controls|jointeam_failed|teamchange_pending|material_default_complete|cs_prev_next_spectator|cs_handle_ime_event|nextlevel_changed|seasoncoin_levelup|tournament_reward|start_halftime|ammo_refill|parachute_pickup|parachute_deploy|dronegun_attack|drone_dispatched|loot_crate_visible|loot_crate_opened|open_crate_instr|smoke_beacon_paradrop|drone_cargo_detached|choppers_incoming_warning|firstbombs_incoming_warning|dz_item_interaction|snowball_hit_player_face)\b'
+  cssevents: '\b(player_death|player_hurt|bomb_beginplant|bomb_abortplant|bomb_planted|bomb_defused|bomb_exploded|bomb_dropped|bomb_pickup|bomb_begindefuse|bomb_abortdefuse|hostage_follows|hostage_hurt|hostage_killed|hostage_rescued|hostage_stops_following|hostage_rescued_all|hostage_call_for_help|vip_escaped|vip_killed|player_radio|bomb_beep|weapon_fire|weapon_fire_on_empty|weapon_reload|weapon_zoom|item_pickup|grenade_bounce|hegrenade_detonate|flashbang_detonate|smokegrenade_detonate|bullet_impact|player_footstep|player_jump|player_blind|player_falldamage|door_moving|round_freeze_end|nav_blocked|nav_generate|player_stats_updated|spec_target_updated|cs_win_panel_round|cs_win_panel_match|show_freezepanel|hide_freezepanel|freezecam_started|player_avenged_teammate|achievement_earned|achievement_earned_local|match_end_conditions|round_mvp|player_decal|teamplay_round_start|christmas_gift_grab)\b'
+
+  eventdef: '\b(event)\b'
+  events: '\b({{genericevents}}|{{genericserverevents}}|{{eventscriptsevents}}|{{csgoevents}}|{{cssevents}})\b'
+
+  consolecommands: '\b(echo|alias)\b'
+
+  esscommandemitsound: '\b(es_x?emitsound( (player|entity)))\b'
+  esscommands: '\b({{esscommandemitsound}}|es|esnq|es_x?botsetvalue|es_x?centermsg|es_x?centertell|es_x?cexec|es_x?cexec_all|es_x?changeteam|es_checkversion|es_x?commandv|es_x?copy|es_corelib_ver|es_x?createbot|es_x?createentity|es_x?createentityindexlist|es_x?createentitylist|es_x?createplayerlist|es_x?createscriptlist|es_x?createvectorfrompoints|es_x?createvectorstring|es_x?dbgmsg|es_x?dbgmsgv|es_x?delayed|es_x?disable|es_x?doblock|es_x?dosql|es_x?dumpconcommandbase|es_x?dumpentities|es_x?dumpserverclasses|es_x?dumpstringtable|es_dumpstringtables|es_dumpusermessages|es_x?effect|es_emulator_version|es_x?enable|es_x?entcreate|es_x?entitygetvalue|es_x?entitysetvalue|es_x?entsetname|es_x?escinputbox|es_x?escmenu|es_x?esctextbox|es_x?event|es_x?fadevolume|es_x?fire|es_x?flags|es_x?forcecallbacks|es_x?forcevalue|es_x?foreachkey|es_x?foreachval|es_x?format|es_x?formatqv|es_x?formatv|es_x?getargc|es_x?getargs|es_x?getargv|es_x?getclientvar|es_x?getcmduserid|es_x?getentityindex|es_x?getentitypropoffset|es_x?getgame|es_x?getgravityvector|es_x?gethandlefromindex|es_x?getindexfromhandle|es_x?getindexprop|es_x?getlivingplayercount|es_x?getmaxplayercount|es_x?getmoney|es_x?getplayercount|es_x?getplayerhandle|es_x?getplayerlocation|es_x?getplayermovement|es_x?getplayername|es_x?getplayerprop|es_x?getplayersteamid|es_x?getplayerteam|es_x?getpropoffset|es_x?getproptype|es_x?gettime|es_x?gettimestamp|es_x?gettimestring|es_x?getuserid|es_x?give|es_x?install|es_x?isbot|es_x?isdedicated|es_x?keycreate|es_x?keydelete|es_x?keygetvalue|es_x?keygroupcopy|es_x?keygroupcreate|es_x?keygroupdelete|es_x?keygroupfilter|es_keygrouplist|es_x?keygroupload|es_x?keygroupmsg|es_x?keygrouprename|es_x?keygroupsave|es_x?keylist|es_x?keyrename|es_x?keysetvalue|es_x?lightstyle|es_x?load|es_x?loadevents|es_x?log|es_x?logq|es_x?logv|es_x?makepublic|es_x?math|es_x?mathparse|es_x?menu|es_x?mexec|es_x?msg|es_x?old_mexec|es_x?physics|es_x?playsound|es_x?precachedecal|es_x?precachemodel|es_x?precachesound|es_x?prop_dynamic_create|es_x?prop_physics_create|es_x?queryclientvar|es_x?queryregclientcmd|es_x?queryregcmd|es_x?queryregsaycmd|es_x?rand|es_x?refreshpublicvars|es_x?regclientcmd|es_x?regcmd|es_x?regex|es_x?regsaycmd|es_x?reload|es_x?remove|es_x?scriptpacklist|es_x?set|es_x?setang|es_x?setentityname|es_x?setentitypropoffset|es_x?setindexprop|es_x?setinfo|es_x?setplayerprop|es_x?setpos|es_x?setview|es_x?sexec|es_x?sexec_all|es_x?soon|es_x?spawnentity|es_x?spawnplayer|es_x?splitvectorstring|es_x?sql|es_x?stopsound|es_x?strcmp|es_x?string|es_x?stringtable|es_x?strlen|es_x?tell|es_x?token|es_x?toptext|es_x?trick|es_x?uninstall|es_x?unload|es_x?unregclientcmd|es_x?unregsaycmd|es_x?update|es_x?usermsg|es_x?voicechat|es_xnq)\b'
+  essprivatecommands: '\b(es__clientcmdproxy|es__cmdproxy|es__createentity|es__createentity2|es__db|es__de|es__disable|es__dispatcheffect|es__eb|es__entblock|es__entsetname|es__ep|es__fire|es__foreachkey|es__foreachval|es__give|es__ip|es__prop_dynamic_create|es__prop_physics_create|es__pyevent|es__remove|es__sb|es__setang|es__setpos|es__unload|es_x_disable|es_x_foreachkey|es_x_foreachval|es_x_unload)\b'
+
+  corelibcommandplayergetset: '\b(ammo|clip|health|armor|speed|cash|defuser|noclip|jetpack|freeze|location|viewcoord)\b'
+  corelibcommandplayerget: '\b(playerget( ({{corelibcommandplayergetset}}|primary|secondary|he|sg|fb|c4|weaponindex|viewangle|viewvector|distance|isdead|flashalpha|flashduration))?)\b'
+  corelibcommandplayerset: '\b(playerset( ({{corelibcommandplayergetset}}|nightvision|nightvisionon|viewplayer|push|model|color|moveto|flash|healthadd|armoradd|speedadd|cashadd))?)\b'
+  corelibcommandrepeat: '\b(repeat( (create|start|pause|resume|stop|delete|status))?)\b'
+  corelibcommandforeach: '\b(foreach( (player))?)\b'
+  corelibcommandclientcmd: '\b(clientcmd( ((create( (say|console))?)|(delete( (say|console))?)))?)\b'
+  corelibcommandqueue: '\b(queue( (create|delete|add|get|items))?)\b'
+  corelibcommandplayervar: '\b(playervar( (get|set|exists))?)\b'
+  corelibcommandpopup: '\b(popup( (create|delete|addline|delline|insline|modline|prepuser|menuselect|menuselectfb|select|submenu|menuvalue|timeout|send|unsendname|close|isqueued|active|exists|addlinef|inslinef|modlinef|cachemode|recache|update|displaymode|construct|setvar|getvar|easymenu|addoption|setoption|description|info|emulate|editlang|setstyle|quicksend|list))?)\b' # It's not really a corelib command but whatever
+  corelibcommandprofile: '\b(profile( (begin|end))?)\b' # It's not really a corelib command but whatever
+  corelibcommandrefcount: '\b(refcount( ((variable( (decrement|increment))?)|(addon( (decrement|increment))?)|(decrement|increment)))?)\b' # TODO: Add "count"
+  corelibcommandscore: '\b(score( (get|set|add|del))?)\b'
+  corelibcommandstack: '\b(stack( (create|delete|save|restore|pop|push|getlength))?)\b' # It's not really a corelib command but whatever
+  corelibcommandusermsg: '\b(usermsg( (centermsg|fade|hudhint|keyhint|list|motd|shake))?)\b'
+  corelibcommands: '\b(damage|getrandplayer|isnull|nearcoord|downloadable|isnumerical|inrange|average|setentname|getplayercount|{{corelibcommandplayerget}}|{{corelibcommandplayerset}}|{{corelibcommandrepeat}}|{{corelibcommandforeach}}|{{corelibcommandclientcmd}}|{{corelibcommandqueue}}|{{corelibcommandplayervar}}|{{corelibcommandpopup}}|{{corelibcommandprofile}}|{{corelibcommandrefcount}}|{{corelibcommandscore}}|{{corelibcommandstack}}|{{corelibcommandusermsg}})\b'
+
+  esteffectcommands: '\b(est_effect( (3[0-5]|[1-2][0-9]|[1-9]))?|est_effect_01|est_effect_02|est_effect_03|est_effect_04|est_effect_05|est_effect_06|est_effect_07|est_effect_08|est_effect_09|est_effect_10|est_effect_11|est_effect_12|est_effect_13|est_effect_14|est_effect_15|est_effect_16|est_effect_17|est_effect_18|est_effect_19|est_effect_20|est_effect_21|est_effect_22|est_effect_23|est_effect_24|est_effect_25|est_effect_26|est_effect_27|est_effect_28|est_effect_29|est_effect_30|est_effect_31|est_effect_32|est_effect_33|est_effect_34|est_effect_35)\b'
+  estcommands: '\b({{esteffectcommands}}|est_adddownload|est_armor|est_armoradd|est_ban|est_burn|est_cash|est_cashadd|est_cexec|est_classlist|est_closefile|est_countlines|est_csay|est_curtime|est_cvaraddflag|est_cvardelflag|est_damage|est_deleteline|est_deleteragdolls|est_dissolve|est_dropweapon|est_drug|est_drunk|est_endround|est_extinguish|est_fade|est_fileexists|est_freeze|est_getammo|est_getangletopoint|est_getarmor|est_getcash|est_getchat|est_getclipammo|est_getdeaths|est_getentclassname|est_getentityindex|est_getentname|est_geteyecoord|est_getfb|est_getgravity|est_getgun|est_getguncoord|est_gethe|est_gethealth|est_getindex|est_getip|est_getkills|est_getline|est_getname|est_getplayerdistance|est_getprimary|est_getsecondary|est_getsg|est_getsteam|est_getteam|est_getuserid|est_getviewangle|est_getviewcoord|est_getviewplayer|est_getviewprop|est_getwallbetween|est_getweaponindex|est_give|est_god|est_hasdefuser|est_hashelmet|est_haskevlar|est_health|est_healthadd|est_help|est_hsay|est_insertline|est_isalive|est_isalpha|est_isbomber|est_isnumeric|est_isonly|est_jetpack|est_kick|est_killadd|est_kills|est_killset|est_knifeonly|est_lightstyle|est_makeentity|est_motd_f|est_motd_t|est_motd_w|est_msg|est_muteplayer|est_name|est_near|est_nearcoord|est_noclip|est_openfile|est_openfiles|est_physpush|est_play|est_playedict|est_playercount|est_playplayer|est_printopenfile|est_propcount|est_proplist|est_propshow|est_pushto|est_randplayer|est_remove|est_removeidle|est_removeweapon|est_restrict|est_restrictall|est_rocket|est_rounddecimal|est_setaim|est_setammo|est_setarmor|est_setcash|est_setclipammo|est_setentitycolor|est_setentmodel|est_setentname|est_setgravity|est_sethealth|est_setplayercolor|est_setviewangle|est_setviewcoord|est_shake|est_showmenu|est_showrestrictions|est_slay|est_spawn|est_speed|est_stopsound|est_stripplayer|est_strlen|est_strtolower|est_strtoupper|est_team|est_teleport|est_trimdecimal|est_unmuteplayer|est_unrestrict|est_unrestrictall|est_uptime|est_viewcone)\b'
+
+  wcscommandwcsgroup: '\b(wcsgroup( (get|set))?)\b'
+  wcscommandwcs_setfx: '\b(wcs_setfx( (1stammo|1stclip|2ndammo|2ndclip|armor|attackspeed|burn|cash|disguiser?|flicker|freeze|god|gravity|health|invisp?|jetpack|longjump|noblock|norecoil|speed|ulti_immunity))?)\b'
+  wcscommandwcs_foreach: '\b(wcs_foreach( (player))?)\b'
+  wcscommandwcs: '\b(wcs( (changeteam|damage|drop|drug|drunk|extinguish|fire|getviewentity|getviewplayer|give|gravity|keyhint|push|pushto|removeweapon|spawn|strip))?)\b'
+  wcscommandwcsx: '\b(wcsx( (call|create|get|math|set|split))?)\b'
+  wcscommands: '\b({{wcscommandwcsgroup}}|{{wcscommandwcs_setfx}}|{{wcscommandwcs_foreach}}|{{wcscommandwcs}}|{{wcscommandwcsx}}|wcs_centertell|wcs_decimal|wcs_nearcoord|wcs_pushed|wcs_pushto|wcs_cancelulti|wcs_removefx|wcs_get_skill_level|wcs_color|wcs_changerace|wcs_givexp|wcs_givelevel|wcs_xalias|wcs_dalias|wcs_xtell|wcs_xcentertell|wcs_centermsg|wcs_centertell|wcs_dealdamage|wcs_getcolors|wcs_restrict|wcs_unrestrict|wcs_getlanguage|wcs_randplayer|wcs_(get|set)_?cooldown|wcs_(get|set)_ability_cooldown|wcs_cancel_ability|wcs_getviewcoords|wcs_getdistance|wcs_explosion|wcs_getrandomrace|wcs_getwallbetween|wcs_getview(entity|player)|wcs_removeweapon|wcs_drop|wcs_spawn|wcs_evasion|wcs_absorb|wcs_getplayerindex|wcs_overlay|wcs_noflash|wcs_drug|wcs_setresist|wcs_create_prop|wcs_fade|wcs_shake|wcs_teleport|wcs_regeneration|wcs_warden|wcs_log)\b'
+
+  allconsolecommands: '\b({{consolecommands}})\b'
+  allesscommands: '\b({{esscommands}})\b'
+  allcorelibcommands: '\b({{corelibcommands}})\b'
+  allestcommands: '\b({{estcommands}})\b'
+  allwcscommands: '\b({{wcscommands}})\b'
+  allprivatecommands: '\b({{essprivatecommands}})\b'
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: keywords
+    - include: variables
+    - include: numbers
+    - include: strings
+    - include: operators
+    - include: functions
+    - include: commands
+    - include: special
+    - include: colors
+
+  keywords:
+    - match: '\b{{keywords}}\b'
+      scope: keyword.control.eventscripts
+    - match: '\bifx( (true|false))?'
+      scope: keyword.control.eventscripts
+      push:
+      - match: '\b({{serverkeys}})\b'
+        scope: keyword.variable.server.key.eventscripts
+        pop: true
+      - match: '\b([[^()].]+)\b'
+        scope: keyword.variable.server.key.other.eventscripts
+        pop: true
+      - match: \)
+        pop: true
+
+  variables:
+    - match: '\b({{eventvars}})\b'
+      scope: keyword.variable.event.eventscripts
+      push:
+      - match: '\b({{eventkeys}})\b'
+        scope: keyword.variable.event.key.eventscripts
+        pop: true
+      - match: \)
+        pop: true
+    - match: '\b({{servervars}})\b'
+      scope: keyword.variable.server.eventscripts
+      push:
+      - match: '\b({{serverkeys}})\b'
+        scope: keyword.variable.server.key.eventscripts
+        pop: true
+      - match: '\b([[^()].]+)\b'
+        scope: keyword.variable.server.key.other.eventscripts
+        pop: true
+      - match: \)
+        pop: true
+
+  numbers:
+    - match: '\b{{numerals}}\b'
+      scope: constant.numeric.eventscripts
+
+  operators:
+    - match: '{{comparison}}'
+      scope: keyword.operator.comparison.eventscripts
+    - match: '{{arithmetic}}'
+      scope: keyword.operator.arithmetic.eventscripts
+
+  strings:
+    - match: '"'
+      scope: string.begin.eventscripts
+      push: inside_string
+
+  inside_string:
+    - meta_include_prototype: false
+    - meta_scope: string.eventscripts
+    # - match: '(\.|\\")'
+    - match: '(\.)'
+      scope: constant.character.escape.eventscripts
+    - match: '"'
+      scope: string.end.eventscripts
+      pop: true
+
+  comments:
+    - match: '//'
+      scope: comment.eventscripts
+      push:
+        - meta_scope: comment.line.eventscripts
+        - match: $\n?
+          pop: true
+
+  functions:
+    - match: '\b{{blockdef}} {{blocks}}\b'
+      scope: function.eventscripts
+    - match: '\b{{blockdef}}\b'
+      scope: function.eventscripts
+      push:
+      - match: '\b ([a-zA-Z0-9_\-\+]*)\b'
+        scope: function.block.eventscripts
+        pop: true
+    - match: '\b{{eventdef}} {{events}}\b'
+      scope: function.event.eventscripts
+    - match: '\b{{eventdef}}\b'
+      scope: function.eventscripts
+
+  commands:
+    - match: '\b{{beginempty}}{{allconsolecommands}}{{endempty}}\b'
+      scope: command.console.eventscripts
+    - match: '\b{{beginempty}}{{allesscommands}}{{endempty}}\b'
+      scope: command.ess.eventscripts
+    - match: '\b{{beginempty}}{{allcorelibcommands}}{{endempty}}\b'
+      scope: command.corelib.eventscripts
+    - match: '\b{{beginempty}}{{allestcommands}}{{endempty}}\b'
+      scope: command.est.eventscripts
+    - match: '\b{{beginempty}}{{allwcscommands}}{{endempty}}\b'
+      scope: command.wcs.eventscripts
+    - match: '\b{{beginempty}}{{allprivatecommands}}{{endempty}}\b'
+      scope: command.private.eventscripts
+
+  special:
+    # ESS Commands
+    - match: '\b{{beginempty}}es_x?exists{{endempty}}\b'
+      scope: command.ess.eventscripts
+      push:
+      - include: variables
+      - match: ' (variable|map|saycommand|clientcommand|command|keygroup|userid|key|keyvalue)'
+        scope: command.ess.eventscripts
+        pop: true
+      - match: $
+        pop: true
+
+    # Corelib commands
+    - match: '\b{{beginempty}}getplayerinfo{{endempty}}\b'
+      scope: command.corelib.eventscripts
+      push:
+      - include: variables
+      - match: ' (name|steamid|index|teamid|kills|deaths|armor|model|isdead|isbot|ishltv|isobserver|isinavehicle|health|serialnumber|weapon|handle|ping|packetloss|x|y|z)'
+        scope: command.corelib.eventscripts
+        pop: true
+      - match: $
+        pop: true
+    - match: '\b{{beginempty}}forcecase{{endempty}}\b'
+      scope: command.corelib.eventscripts
+      push:
+      - include: variables
+      - include: strings
+      - match: ' (lower|upper)'
+        scope: command.corelib.eventscripts
+        pop: true
+      - match: $
+        pop: true
+    - match: '\b{{beginempty}}vecmath{{endempty}}\b'
+      scope: command.corelib.eventscripts
+      push:
+      - include: variables
+      - include: numbers
+      - match: '\b(X|angle|angles|length|normalize|setlength)\b'
+        scope: command.corelib.eventscripts
+        pop: true
+      - match: $
+        pop: true
+
+    # WCS Commands
+    - match: '\b{{beginempty}}wcs_getinfo{{endempty}}\b'
+      scope: command.wcs.eventscripts
+      push:
+      - include: variables
+      - match: '\b((shortname|name|level|xp|unused)( race)?)|((shortcurrace|currace|totallevel)( player)?)\b'
+        scope: command.wcs.eventscripts
+        pop: true
+      - match: $
+        pop: true
+
+  colors:
+    - match: '{{colors}}'
+      scope: constant.character.color.eventscripts
